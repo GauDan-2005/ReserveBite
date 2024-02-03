@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const address_schema = require("./addressSchema");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -16,20 +15,23 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  address: [address_schema],
   birthday: {
     type: Date,
     required: true,
   },
   gender: {
     type: String,
-    enum: ["Male", "Female", "Other"],
+    enum: ["MALE", "FEMALE"],
     required: true,
   },
-  mobileNumber: {
+  mobile_number: {
     type: String,
     required: true,
   },
+  address: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Address",
+  },
 });
 
-module.exports = mongoose.model("Users", userSchema);
+module.exports = mongoose.model("User", userSchema);

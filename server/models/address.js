@@ -25,9 +25,13 @@ const addressSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pincode: {
+  pin_code: {
     type: Number,
     required: true,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "Users",
   },
 });
 
