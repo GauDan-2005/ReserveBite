@@ -28,10 +28,27 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  address: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Address",
+  saved_address: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Address",
+    },
+  ],
+  saved_hotel: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hotel",
+    },
+  ],
+  img: {
+    type: String,
   },
+  booking: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "booking",
+    },
+  ],
 });
 
 module.exports = mongoose.model("User", userSchema);
