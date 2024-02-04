@@ -26,7 +26,11 @@ const address = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  user: {
+  is_user_primary: {
+    type: Boolean,
+    required: true,
+  },
+  user_id: {
     type: Schema.Types.ObjectId,
     ref: "Users",
   },

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const hotelSchema = new mongoose.Schema({
+const hotel = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -88,13 +88,13 @@ const hotelSchema = new mongoose.Schema({
     },
   ],
   menu: {
-    food: [
+    food_items: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "food",
+        ref: "Food",
       },
     ],
-    file: [
+    pdf_url: [
       {
         type: String,
       },
@@ -108,4 +108,4 @@ const hotelSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("Hotel", hotelSchema);
+module.exports = mongoose.model("Hotel", hotel);

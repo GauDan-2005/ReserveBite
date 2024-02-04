@@ -1,17 +1,10 @@
 const mongoose = require("mongoose");
 
 const booking = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
-  hotel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Hotel",
-  },
-  date: {
+  booking_date_time: {
     type: Date,
     default: Date.now,
+    required: true,
   },
   guests: {
     type: Number,
@@ -19,17 +12,31 @@ const booking = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["CONFIRM", "CANCELLED", "ENDED"],
+    enum: ["CONFIRMED", "CANCELLED", "ENDED"],
     required: true,
   },
   table_number: {
     type: String,
     required: true,
   },
-  order: [
+  orders: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "food",
+      ref: "Food",
+    },
+  ],
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+  hotel_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Hotel",
+  },
+  offers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Offer",
     },
   ],
 });

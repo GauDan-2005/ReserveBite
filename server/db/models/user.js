@@ -28,25 +28,25 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  saved_address: [
+  img_url: {
+    type: String,
+  },
+  user_address_ids: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Address",
     },
   ],
-  saved_hotel: [
+  saved_hotel_ids: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Hotel",
     },
   ],
-  img: {
-    type: String,
-  },
-  booking: [
+  booking_ids: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "booking",
+      ref: "Booking",
     },
   ],
 });

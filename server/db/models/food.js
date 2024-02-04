@@ -13,7 +13,7 @@ const food = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  tag: {
+  category: {
     type: String,
     enums: [
       "Entrees",
@@ -81,18 +81,14 @@ const food = new mongoose.Schema({
       "Dinner",
       "Kids Menu",
       "Specials",
-      "Chef's Recommendations",
-      "Healthy Options",
-      "Gluten-Free Options",
-      "Vegan Options",
     ],
   },
   quantity: {
     type: Number,
     required: true,
-    default: 1,
+    default: 0,
   },
-  img: {
+  img_url: {
     type: String,
   },
 });

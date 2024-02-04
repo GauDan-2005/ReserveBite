@@ -13,12 +13,22 @@ const offer = mongoose.Schema({
       required: true,
     },
   },
-  count: {
+  avail_counts: {
     type: Number,
     required: true,
   },
-  available: {
+  is_available: {
     type: Boolean,
+    required: true,
+  },
+  discount: {
+    type: Number,
+    required: true,
+    enum: ["PERCENTAGE", "AMOUNT"],
+  },
+  hotel_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Hotel",
     required: true,
   },
 });
