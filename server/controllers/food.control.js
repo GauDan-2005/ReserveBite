@@ -7,5 +7,5 @@ const foodControl = {
   createFood: async (req, res) => {},
   getFood: async (req, res) => {},
   getFoods: async (req, res) => {},
-  EditFood: async (req, res) => {},
+  updateFood: async (req, res) => {},
 };
