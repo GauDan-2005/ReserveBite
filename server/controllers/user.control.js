@@ -4,8 +4,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../db/models/user");
 
 const userControl = {
-  login: async (req, res) => {},
-  register: async (req, res) => {},
   getUser: async (req, res) => {},
-  editUser: async (req, res) => {},
+  updateUser: async (req, res) => {},
+  deleteUser: async (req, res) => {},
 };
