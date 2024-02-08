@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  name: {
+  is_google_auth: {
+    type: Boolean,
+    required: true,
+  },
+  username: {
     type: String,
     required: true,
   },
@@ -13,20 +17,16 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
   },
   birthday: {
     type: Date,
-    required: true,
   },
   gender: {
     type: String,
     enum: ["MALE", "FEMALE"],
-    required: true,
   },
   mobile_number: {
     type: String,
-    required: true,
   },
   img_url: {
     type: String,

@@ -91,6 +91,11 @@ const food = new mongoose.Schema({
   img_url: {
     type: String,
   },
+  hotel_id: {
+    type: Schema.Types.ObjectId,
+    ref: "Hotel",
+    required: true,
+  },
 });
 
 module.exports = new mongoose.model("Food", food);
