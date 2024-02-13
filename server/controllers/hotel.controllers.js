@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const Hotel = require("../db/models/hotel");
 
-const hotelControl = {
+const hotelControllers = {
   getHotel: async (req, res) => {
     try {
       const hotel = await Hotel.findById(req.body.hotel_id);
@@ -66,3 +66,5 @@ const hotelControl = {
     }
   },
 };
+
+module.exports = hotelControllers;

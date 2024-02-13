@@ -50,7 +50,7 @@ const authControllers = {
       res.status(500).json({ msg: err.message });
     }
   },
-  // logout: async (req, res) => {}, // to use or not??? good practice??
+  logout: async (req, res) => {},
   verifiedToken: (req, res) => {
     try {
       const token = req.header("Authorization");
