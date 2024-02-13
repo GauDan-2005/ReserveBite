@@ -5,7 +5,7 @@ const passport = require("passport");
 const dotenv = require("dotenv");
 const connect = require("./db/config/connect");
 
-const userRoutes = require("./routes/user.routes");
+const authRoutes = require("./routes/auth.routes");
 
 dotenv.config();
 
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.use("/user", userRoutes);
+app.use("/auth", authRoutes);
 
 app.listen(port, () => {
   connect();

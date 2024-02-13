@@ -21,15 +21,23 @@ const offer = mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  discount_type: {
+    type: String,
+    required: true,
+    enum: ["PERCENTAGE", "AMOUNT"],
+  },
   discount: {
     type: Number,
     required: true,
-    enum: ["PERCENTAGE", "AMOUNT"],
   },
   hotel_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Hotel",
     required: true,
+  },
+  user_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
 });
 

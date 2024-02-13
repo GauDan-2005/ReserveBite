@@ -26,13 +26,17 @@ const address = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  is_user_primary: {
+  is_primary_address: {
     type: Boolean,
     required: true,
   },
   user_id: {
     type: Schema.Types.ObjectId,
-    ref: "Users",
+    ref: "User",
+  },
+  hotel_id: {
+    type: Schema.Types.ObjectId,
+    ref: "Hotel",
   },
 });
 

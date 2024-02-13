@@ -19,6 +19,12 @@ const hotel = new mongoose.Schema({
       required: true,
     },
   },
+  tags: [
+    {
+      type: String,
+      enums: ["featured"],
+    },
+  ],
   address: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Address",
