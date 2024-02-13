@@ -12,9 +12,11 @@ const bookingControllers = {
       res.status(400).json({ msg: err.message });
     }
   },
-  getBookingsByHotel: async (req, res) => {
+
+  getBookingsOfHotel: async (req, res) => {
     try {
-      const bookingsByHotel = await Booking.find({ hotel_id: req.hotel.id });
+      const { hotel_id } = req.body;
+      const bookingsByHotel = await Booking.find({ hotel_id: hotel_id });
       res.json(bookingsByHotel);
     } catch (err) {
       res.status(400).json({ msg: err.message });
