@@ -1,4 +1,4 @@
-const Food = require("../db/models/food");
+const Food = require("../../db/models/food");
 
 const foodControllers = {
   createFood: async (req, res) => {
@@ -57,6 +57,14 @@ const foodControllers = {
       res.json({ msg: "Food Item updated successfuly." });
     } catch (err) {
       res.status(400).json({ msg: err.message });
+    }
+  },
+  deleteFood: async (req, res) => {
+    try {
+      await Food.findByIdAndDelete({ _id: req.params.id });
+      res.json({ msg: "Food item deleted successfully." });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
     }
   },
 };

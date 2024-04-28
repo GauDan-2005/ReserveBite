@@ -92,7 +92,7 @@ const food = new mongoose.Schema({
     type: String,
   },
   hotel_id: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Hotel",
     required: true,
   },

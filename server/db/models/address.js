@@ -34,10 +34,6 @@ const address = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  hotel_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Hotel",
-  },
 });
 
 module.exports = new mongoose.model("Address", address);

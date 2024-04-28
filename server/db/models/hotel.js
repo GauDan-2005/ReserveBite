@@ -22,7 +22,7 @@ const hotel = new mongoose.Schema({
   tags: [
     {
       type: String,
-      enums: ["featured"],
+      enums: ["featured", "recommended", "visited"],
     },
   ],
   address: {

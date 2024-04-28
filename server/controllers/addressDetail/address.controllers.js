@@ -1,6 +1,3 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-
 const Address = require("../../db/models/address");
 
 const addressController = {
@@ -25,6 +22,7 @@ const addressController = {
         country: country,
         pin_code: pin_code,
         is_primary_address: is_primary_address,
+        user_id: user_id,
       });
       await newAddress.save();
       res.json({ newAddress, msg: "New Address saved successfully." });
@@ -58,10 +56,9 @@ const addressController = {
         country,
         pin_code,
         is_primary_address,
-        address_id,
       } = req.body;
       await Address.findByIdAndUpdate(
-        { _id: address_id },
+        { _id: req.params.id },
         {
           label: label,
           address_line: address_line,
@@ -73,7 +70,17 @@ const addressController = {
         }
       );
       res.json({ msg: "Address changed successfully." });
-    } catch (err) {}
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
+  },
+  deleteAddress: async (req, res) => {
+    try {
+      await Address.findByIdAndDelete({ _id: req.params.id });
+      res.json({ msg: "Address deleted successfully." });
+    } catch (err) {
+      res.status(500).json({ msg: err.message });
+    }
   },
 };
 

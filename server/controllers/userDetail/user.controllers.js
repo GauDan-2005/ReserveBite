@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const User = require("../db/models/user");
+const User = require("../../db/models/user");
 
-const userControls = {
+const userControllers = {
   getUser: async (req, res) => {
     try {
       const user = await User.findById({ _id: req.user.id });
@@ -51,4 +51,4 @@ const userControls = {
   },
 };
 
-module.exports = userControls;
+module.exports = userControllers;
